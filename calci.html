@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bill status</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
+	<link href="css/font-awesome.min.css" rel="stylesheet" >
+	<link href="css/global.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<style>
+	h1 {  
+			text-align: center;  
+			padding: 23px;  
+			background-color: rgb(199, 118, 43);  
+			color: white;  
+		}  
+		
+		#calculate {  
+			width: 285px;  
+			border: 3px solid gray; 
+			margin-top: 20px;
+			border-radius: 3px;  
+			padding: 20px;  
+			background-color: rgb(50, 80, 50);  
+		}  
+		
+		.formstyle  {  
+			width: 345px;  
+			height: 515px;  
+			margin: auto;  
+			border: 3px solid rgb(177, 106, 39);  
+			border-radius: 5px;  
+			padding: 20px;  
+		}  
+		input  {  
+			width: 20px;  
+			background-color: rgb(226, 151, 52);  
+			color: white;  
+			border: 3px solid gray;  
+			border-radius: 5px;  
+			padding: 20px 40px;  
+			margin: 5px;  
+			font-size: 15px;  
+		}  	
+		#calc {  
+			width: 290px;  
+			height: 60px;
+			border: 5px solid black;  
+			border-radius: 3px;  
+			padding: 20px;  
+			margin: auto;  
+			font-size: 35px;
+			text-align: right;
+		} 
+
+   		
+	</style>
+
+</head>
+<body>
+<div class="main">
+<div class="main_1 bg_backo">
+  <section id="top" class="pt-3 pb-3">
+<div class="container-fluid px-5">
+ <div class="row top_1">
+  <div class="col-md-8">
+   <div class="top_1l mt-1"> 
+   </div>
+  </div>
+  <div class="col-md-4">
+   <div class="top_1r text-end">
+      <ul class="mb-0">
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-facebook"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-twitter"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-instagram"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-youtube-play"></i></a>  </li>
+	</ul>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+ <section id="header">
+<nav class="navbar navbar-expand-md navbar-light pt-0 pb-0" id="navbar_sticky">
+  <div class="container-fluid px-5">
+    <a class="text-white navbar-brand fw-bold me-0 p-0" href="index.html"><i class="fa fa-lightbulb-o col_oran me-1 font_50 align-middle"></i> EB Pay</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+			</li>
+          </ul>
+        </li>
+         		
+      </ul>
+    </div>
+  </div>
+</nav>
+</section>
+</div>
+</div>
+<h1> EB Bill Calculator </h1>  
+    <div class= "formstyle">  
+        <form name = "form1">  
+            <input id = "calc" type ="text" name = "answer" id="answer">
+            <br><br>  
+
+            <input type = "button" value = "1" onclick = "dis('1')">  
+            <input type = "button" value = "2" onclick = "dis('2')">  
+            <input type = "button" value = "3" onclick = "dis('3')">  
+            <br>
+                
+            <input type = "button" value = "4" onclick = "dis('4')">  
+            <input type = "button" value = "5" onclick = "dis('5')">  
+            <input type = "button" value = "6" onclick = "dis('6')">  
+            <br>
+                
+            <input type = "button" value = "7" onclick = "dis('7')">  
+            <input type = "button" value = "8" onclick = "dis('8')">  
+            <input type = "button" value = "9" onclick = "dis('9')">
+            <br>
+                
+                
+            <input type = "button" value = "." onclick = "dis('.')">  
+            <input type = "button" value = "0" onclick = "dis('0')">  
+            <input type = "button" value = "C" onclick = "clr()">  
+            <br>   
+
+            <input type = "button" value = "Calculate" onclick = "solve()" id= "calculate" > 
+            <br>   
+        </form>  
+    </div>
+	<script>
+function dis(val)
+		{
+			document.getElementById("calc").value+=val
+		}
+		  
+		function solve()
+		{
+			let x = document.getElementById("calc").value
+			let a = parseInt(x);
+			let b;
+
+			if (a>=0 && a<=100){
+			   b = "Free";
+			} 
+			else if (a>100 && a<=200){
+			   b = (a - 100) * 1.5 + 20;
+			} 
+			else if (a>200 && a<=500){
+			   b = (a - 200) * 3 + 200 + 30;
+			} 
+			else{
+			   b = (a - 500) * 6.6 + (100 * 3.5) + (300 * 4.6) + 50;
+			}
+
+			document.getElementById("calc").value = "Amount : " + b
+		}
+		  
+		function clr()
+		{
+			document.getElementById("calc").value = ""
+		}
+		
+</script>
+
+</body>
+</html>
+
+
+

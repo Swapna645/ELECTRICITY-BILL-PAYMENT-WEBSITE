@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Electrician</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
+	<link href="css/font-awesome.min.css" rel="stylesheet" >
+	<link href="css/global.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        
+*{
+  margin: 10;
+  padding: 10;
+  box-sizing: border-box;
+ 
+}
+.b{
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.content{
+  width: 330px;
+  padding: 40px 30px;
+  background: #4e5157;
+  border-radius: 10px;
+  box-shadow: -3px -3px 7px #58545473,
+               2px 2px 5px rgba(94,104,121,0.288);
+}
+.content .text{
+  font-size: 33px;
+  font-weight: 600;
+  margin-bottom: 35px;
+  color: #141313;
+}
+.field{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.field:nth-child(2){
+  margin-top: 20px;
+}
+.field input{
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #e1e3e6;
+  color: #1d1a18;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #ffbe69,
+              inset -5px -5px 10px #ca9a5b8e;
+}
+.field input:focus{
+  box-shadow: inset 1px 1px 2px #ccccba,
+              inset -1px -1px 2px #ffffff73;
+}
+.field span{
+  position: absolute;
+  color: #595959;
+  width: 50px;
+  line-height: 50px;
+}
+.field label{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 45px;
+  pointer-events: none;
+  color: #464040;
+}
+.field input:valid ~ label{
+  opacity: 0;
+}
+button{
+  margin: 15px 0;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  font-weight: 600;
+  background: #e7e4dd;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #504c4c;
+  box-shadow: 2px 2px 5px #BABECC,
+             -5px -5px 10px #ffffff73;
+}
+button:focus{
+  color: #df933c;
+  box-shadow: inset 2px 2px 5px #BABECC,
+             inset -5px -5px 10px #ffffff73;
+}
+.sign-up{
+  margin: 10px 0;
+  color: #9b6013;
+  font-size: 16px;
+}
+.sign-up a{
+  color: #f09138;
+  text-decoration: none;
+}
+.sign-up a:hover{
+  text-decoration: underline;
+}
+     </style>
+</head>
+<body>
+<div class="main">
+<div class="main_1 bg_backo">
+  <section id="top" class="pt-3 pb-3">
+<div class="container-fluid px-5">
+ <div class="row top_1">
+  <div class="col-md-8">
+   <div class="top_1l mt-1">
+   
+   </div>
+  </div>
+  <div class="col-md-4">
+   <div class="top_1r text-end">
+      <ul class="mb-0">
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-facebook"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-twitter"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-instagram"></i></a>  </li>
+		<li class="text-white d-inline-block"><a class="bg-white d-block rounded-circle text-center col_purp font_12" href="#"><i class="fa fa-youtube-play"></i></a>  </li>
+	</ul>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+<section id="header">
+    <nav class="navbar navbar-expand-md navbar-light pt-0 pb-0" id="navbar_sticky">
+      <div class="container-fluid px-5">
+        <a class="text-white navbar-brand fw-bold me-0 p-0" href="index.html"><i class="fa fa-lightbulb-o col_oran me-1 font_50 align-middle"></i> EB Pay	</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mb-0 ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="login.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Services </a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link active" href="login.html" >Login </a>
+              </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Contact Us </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-phone  col_oran me-1 fs-5"></i> 9876543210 </a>
+            </li>	
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </section>
+   <div class="b">
+    <div class="content">
+        <div class="text">
+           Login 
+        </div>
+        <form action="home.html">
+           <div class="field">
+              <input type="text" required>
+              <label>Email or Phone</label>
+           </div>
+           <div class="field">
+              <input type="password" required>
+              <label>Password</label>
+           </div>
+           <button>Sign in</button>
+           <div class="sign-up">
+              Haven't Account?
+              <a href="signup.html">Signup</a>
+           </div>
+        </form>
+        
+     </div>
+    </div>
+    <br><br><br><br><br>
+    </body>
+</html>
+
+
+
+        
+
+
+
+   

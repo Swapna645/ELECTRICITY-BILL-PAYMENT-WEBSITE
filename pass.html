@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin</title>
+    <style>
+        body {
+    margin: 0px;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #a527ff;
+    height: 100vh;
+    color: #fff;
+}
+
+.pin-field {
+    display: flex;
+}
+
+.pin-field input {
+    width: 21px;
+    font-size: 32px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px solid #555254;
+    background-color: #21232d;
+    font-weight: bold;
+    color: #f0e6e6;
+    outline: none;
+    transition: all 0.1s;
+}
+
+.pin-field input:focus {
+    border: 2px solid #a527ff;
+    box-shadow: 0 0 2px 2px #a527ff6a;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.space {
+    margin-right: 1rem !important;
+}
+    </style>
+</head>
+<body>
+    <h4>Enter your PIN</h4>
+    <div class="pin-field">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+    </div>
+    <br><br><br>
+    <center><a href="loader.html"><button>Pay</button></a></center>
+    
+    <script>
+        const inputs = document.querySelectorAll('.pin-field input')
+
+
+inputs.forEach((input , index) => {
+    input.dataset.index = index
+    input.addEventListener("paste" , handleOnPaste)
+    input.addEventListener("keyup" , handlepin)
+})
+
+function handleOnPaste (e) {
+    const data = e.clipboardData.getData("text")
+    const value = data.split("")
+    if(value.length == inputs.length){
+        inputs.forEach((input , index) => (
+            input.value = value[index]
+        ))
+        submit()
+    } else {
+        alert("wrong pin size")
+    }
+}
+
+function handlepin (e) {
+    const input = e.target
+    let value = input.value
+    input.value = ""
+    input.value = value ? value[0] : ""
+
+    let fieldIndex = input.dataset.index
+    if(value.length > 0 && fieldIndex < inputs.length - 1) {
+        input.nextElementSibling.focus()
+    }
+
+    if(fieldIndex == inputs.length - 1){
+        submit()
+    }
+}
+
+
+function submit () {
+    let pin = ""
+    inputs.forEach(input => {
+        pin += input.value
+        input.disabled = true
+        input.classList.add("disabled")
+    }) 
+
+    // console.log("submitting..." + pin)
+}
+    </script>
+</body>
+</html>

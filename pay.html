@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	body{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background-color: black;
+	}
+	
+	.container{
+		width: 400px;
+		border-radius: 8px;
+		padding: 40px;
+		background-color: aliceblue;
+		box-shadow: 0 0 0 1px rgba(230, 225, 225, 0.1),
+					0 5px 12px -2px rgba(226, 221, 221, 0.1),
+					0 18px 36px -6px rgba(250, 249, 249, 0.1);
+	}
+	
+	.container .title{
+		font-size: 20px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	
+	.container form input{
+		display: none;
+	}
+	
+	.container form .category{
+		margin-top: 10px;
+		padding-top: 20px;
+	
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 15px;
+	}
+	
+	.category label{
+		/* width: 100%; */
+		/* height: 65px; */
+		height: 145px;
+		padding: 20px;
+		box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+		display: flex;
+		/* justify-content: space-between; */
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		border-radius: 5px;
+		position: relative;
+	}
+	
+	/* label:nth-child(2), label:nth-child(3){
+		margin: 15px 0;
+	} */
+	
+	
+	#gpay:checked ~ .category .gpayMethod,
+	#phonepe:checked ~ .category .phonepeMethod,
+	#paypal:checked ~ .category .paypalMethod,
+	#paytm:checked ~ .category .paytmMethod{
+		box-shadow: 0px 0px 0px 1px #6064b6;
+	}
+	
+	
+	#gpay:checked ~ .category .gpayMethod .check,
+	#phonepe:checked ~ .category .phonepeMethod .check,
+	#paypal:checked ~ .category .paypalMethod .check,
+	#paytm:checked ~ .category .paytmMethod .check{
+		display: block;
+	}
+	
+	
+	label .imgName{
+		display: flex;
+		/* justify-content: space-between;
+		 */
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	.imgName span{
+		/* margin-left: 20px; */
+		font-family: Arial, Helvetica, sans-serif;
+	
+		position: absolute;
+		top: 72%;
+		transform: translateY(-72%);
+	}
+	
+	.imgName .imgContainer{
+		width: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		position: absolute;
+		top: 35%;
+		transform: translateY(-35%);
+	}
+	
+	img{
+		width: 50px;
+		height: auto;
+	}
+	
+	.gpay img{
+		width: 65px;
+		/* margin-left: 5px; */
+	}
+	
+	.phonepe img{
+		width: 65px;
+	}
+	
+	.paypal img{
+		width: 80px;
+	}
+	
+	.paytm img{
+		width: 50px;
+	}
+	
+	.check{
+		display: none;
+		position: absolute;
+		top: -4px;
+		right: -4px;
+	}
+	
+	.check i{
+		font-size: 18px;
+	}
+	
+</style>	
+</head>
+<html>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="container">
+        <div class="title">
+            <h4>Select a <span style="color: #6064b6">Payment</span> method</h4>
+        </div>
+
+        <form action="#">
+            <input type="radio" name="payment" id="gpay">
+            <input type="radio" name="payment" id="phonepe">
+            <input type="radio" name="payment" id="paypal">
+            <input type="radio" name="payment" id="paytm">
+
+
+            <div class="category">
+                <label for="gpay" class="gpayMethod">
+                    <div class="imgName">
+                        <div class="imgContainer gpay">
+                            <img src="https://w7.pngwing.com/pngs/667/120/png-transparent-google-pay-2020-hd-logo.png" alt="">
+                        </div>
+                        <span class="name"><a href="pass.html">GPay</a></span>
+                    </div>
+                   <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span> </a> 
+                </label>
+
+                <label for="phonepe" class="phonepeMethod">
+                    <div class="imgName">
+                        <div class="imgContainer phonepe">
+                            <img src="data:image/png;base64,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" alt="">
+                        </div>
+                        <span class="name"><a href="pass.html">PhonePe</a></span>
+                    </div>
+                    <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                </label>
+
+                <label for="paypal" class="paypalMethod">
+                    <div class="imgName">
+                        <div class="imgContainer paypal">
+                            <img src="https://i.ibb.co/KVF3mr1/paypal.png" alt="">
+                        </div>
+                        <span class="name"><a href="pass.html">PayPal</a></span>
+                    </div>
+                    <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                </label>
+
+                <label for="paytm" class="paytmMethod">
+                    <div class="imgName">
+                        <div class="imgContainer paytm">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp2nUQCDvpxPI_8ak3xKwbITIVtTbIt-oEUA&s" alt="">
+                        </div>
+                        <span class="name"><a href="pass.html">Paytm</a></span>
+                    </div>
+                    <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                </label>
+            </div>
+        </form>
+    </div>
+	</html>
